@@ -72,8 +72,8 @@ pickWinner rngBytesSeed maxIndex =
 main :: IO ()
 main = do
   contents <- getContents
-  putStrLn $ "Length: " ++ (show $ Prelude.length contents)
-  either
-    (\err -> putStrLn $ "There was an error: " ++ err)
-    (\winner -> putStrLn $ "The winner is: " ++ show winner)
-    (runLottery contents)
+  putStrLn
+    $ either
+      (\err -> "There was an error: " ++ err)
+      (\winner -> "The winner is: " ++ show winner)
+      (runLottery contents)
